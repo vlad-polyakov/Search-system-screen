@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { HttpClient, HttpResponse } from '@angular/common/http';
+import { FileService } from '../service/file.service';
 
 @Component({
   selector: 'app-screen-component',
@@ -7,9 +9,22 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ScreenComponent implements OnInit {
   directory = "";
-  constructor() { }
-
+  searchValue = "";
+  constructor(
+    private http: HttpClient,
+    private fileService: FileService
+  ) { }
+  url = null;
   ngOnInit() {
   }
+  sendFiles(event) {
+    const files: Array<File> = event.target.files;
+    this.fileService.sendFiles(files[0]).subscribe(event => {
+     if (event instanceof HttpResponse) {
+        console.log('File is completely uploaded!');
+      }
+    });
+  
+}
 
 }

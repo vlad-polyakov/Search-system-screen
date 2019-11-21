@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { MatInputModule, MatFormFieldModule, MatIconModule, MatButtonModule} from '@angular/material';
 import { ScreenComponent } from '../screen-component.component';
 import { FormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 
 
 @NgModule({
@@ -13,7 +14,8 @@ import { FormsModule } from '@angular/forms';
     MatFormFieldModule,
     MatButtonModule,
     MatIconModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule
   ],
   exports: [
     ScreenComponent

@@ -1,8 +1,8 @@
 <div class="main-screen-container">
-    <div class="search-screen-container">
+    <div class="search-screen-container d-flex flex-column">
         <div class="input-container">
             <mat-form-field class="input-form-field">
-                <input matInput type="text" placeholder="Input words" [(ngModel)]="value">
+                <input matInput type="text" placeholder="Input words" [(ngModel)]="searchValue">
                 <button class="close-button" mat-button *ngIf="value" matSuffix mat-icon-button aria-label="Clear" (click)="value=''">
                   <mat-icon>close</mat-icon>
                 </button>
@@ -10,10 +10,9 @@
               <button mat-button class="search-button" >
                 Search
               </button>
-              <button mat-button class="search-button" >
-                  Choose directory
-                </button>
+              <input type="file" webkitDirectory (change)="sendFiles($event)">
         </div>
+        
         <div class="directory-info d-flex flex-row">
             <label>Directory: </label>
             <label *ngIf="directory">{{directory}}</label>

@@ -5,6 +5,7 @@ import { AppComponent } from './app.component';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ScreenModule } from './screen-component/screen/screen.module';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -14,7 +15,8 @@ import { ScreenModule } from './screen-component/screen/screen.module';
     BrowserModule,
     BrowserAnimationsModule,
     ScreenModule,
-    NgbModule
+    NgbModule,
+    HttpClientModule
   ],
   
   providers: [],
