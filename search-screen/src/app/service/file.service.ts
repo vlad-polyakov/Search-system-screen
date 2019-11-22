@@ -12,9 +12,11 @@ export class FileService {
   constructor(
     private httpClient: HttpClient) {
   }
-  sendFiles(file: File) : Observable<HttpEvent<{}>> {
+  sendFiles(files: File[]) : Observable<HttpEvent<{}>> {
     const formdata: FormData = new FormData();
-    formdata.append('file', file);
+    for (let file of files) {
+    formdata.append('files', file);
+    }
     const req = new HttpRequest('POST', 'http://localhost:8080/fakeDocuments', formdata, {
       reportProgress: true,
       responseType: 'text'

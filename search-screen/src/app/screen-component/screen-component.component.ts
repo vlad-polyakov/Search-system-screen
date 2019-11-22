@@ -19,7 +19,7 @@ export class ScreenComponent implements OnInit {
   }
   sendFiles(event) {
     const files: Array<File> = event.target.files;
-    this.fileService.sendFiles(files[0]).subscribe(event => {
+    this.fileService.sendFiles(files).subscribe(event => {
      if (event instanceof HttpResponse) {
         console.log('File is completely uploaded!');
       }
