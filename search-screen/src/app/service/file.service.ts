@@ -1,6 +1,7 @@
 import { HttpClient, HttpParams, HttpEvent, HttpRequest } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { SearchResult } from '../model/SearchResult';
 
 
 
@@ -24,6 +25,10 @@ export class FileService {
     );
     return this.httpClient.request(req); 
     };  
- 
+    getResult(query: any): Observable<SearchResult[]> {
+      let params = new HttpParams().set("query",query);
+      return this.httpClient.get<SearchResult[]>(this.SERVER_URL+"search", {params: params});
+    }
   }
+  
 
