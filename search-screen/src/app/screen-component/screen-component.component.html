@@ -7,16 +7,18 @@
                   <mat-icon>close</mat-icon>
                 </button>
               </mat-form-field>
-              <button mat-button class="search-button" (click)="getResultData(searchValue)">
+              <button mat-button class="search-button ml-5" (click)="getResultData(searchValue)">
                 Search
               </button>
-              <input type="file" webkitDirectory (change)="sendFiles($event)">
+              <input class="file-chooser ml-5" type="file" webkitDirectory (change)="sendFiles($event)">
         </div>
         
-        <div class="directory-info d-flex flex-row">
-            <label>Directory: </label>
-            <label *ngIf="directory">{{directory}}</label>
-            <label *ngIf="!directory">none</label>
+        <div class="results-container d-flex flex-row ml-4" *ngIf = "checkresults">
+            <div *ngFor="let result of results" class="d-flex flex-column text-column">
+             <div>{{result.title}}</div> 
+             <div>{{result.filePath}}</div>
+                <div>{{result.snippet}}</div>
+            </div>
           </div>
     </div>
 </div>
